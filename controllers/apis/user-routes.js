@@ -64,3 +64,5 @@ router.post('/logout', (req, res) => {
 //PUT for user update?
 
 //DELETE for account deletion?
+
+module.exports = router;
