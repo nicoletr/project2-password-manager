@@ -1,0 +1,135 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-default">
+                <h5 class="card-header">
+                    Password Manager
+                </h5>
+                {{!-- If logged in, show the table with each applications details --}}
+                {{#if loggedIn}}	
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Application
+                                </th>
+                                <th>
+                                    Username
+                                </th>
+                                <th>
+                                    Password
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{!-- Iterate over each app entry to create list of passwords --}}
+                            {{#each app}}
+                            {{> app-details}}
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+                {{/if}}	
+                <div class="card-footer">
+                    {{!-- If logged in, show plus icon for adding a new application entry, and logout button --}}
+                    {{#if loggedIn}}
+                    {{!-- New application button --}}
+                    <button type="button" class="btn" href="#modal-container-new" role="button" data-toggle="modal">
+                        <i class="far fa-plus-square fa-2x"></i>
+                    </button>
+                    {{!-- Modal form for new application entry --}}
+                    <div class="modal fade" id="modal-container-new" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel">
+                                        Enter new application details
+                                    </h5> 
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/action_page.php">
+                                        <label for="fname">Application</label><br>
+                                        <input type="text" id="app" name="app"><br>
+                                        <label for="fname">Username</label><br>
+                                        <input type="text" id="uname" name="uname"><br>
+                                        <label for="lname">Password</label><br>
+                                        <input type="text" id="pwd" name="pwd"><br><br>
+                                        <i class="fas fa-cogs fa-2x"></i><p>Generate Password</p>
+                                    </form> 
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">
+                                        Save changes
+                                    </button> 
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                    
+                        </div>              
+                    </div>
+                    {{!-- Logout button --}}
+                    <button type="button" class="btn" role="button" data-toggle="modal">
+                    Logout
+                    </button>
+
+                    {{/if}}
+
+                    {{!-- If not logged in, show the login button and modal --}}
+                    {{#if !loggedIn}}				
+                    <button type="button" class="btn btn-success" href="#modal-container-login" role="button" data-toggle="modal">
+                    Login
+                    </button>
+
+                    <div class="modal fade" id="modal-container-login" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel">
+                                    Enter your Username and Password
+                                    </h5> 
+                                    <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/action_page.php">
+                                    <label for="fname">Username</label><br>
+                                    <input type="text" id="uname" name="uname"><br>
+                                    <label for="lname">Password</label><br>
+                                    <input type="text" id="pwd" name="pwd"><br><br>
+                                    </form> 
+                                </div>
+                                <div class="modal-footer">							 
+                                    <button type="button" class="btn btn-primary">
+                                        Save changes
+                                    </button> 
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                    
+                        </div>
+                
+                    </div>
+                    {{/if}}
+
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
