@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const users = userData.map((project) => project.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('index', {
       users,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
@@ -28,8 +28,6 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
-  res.render('login');
 });
 
 module.exports = router;
