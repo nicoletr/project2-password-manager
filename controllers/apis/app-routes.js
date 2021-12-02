@@ -10,7 +10,7 @@ router.get ('/', withAuth, async (req, res) => {
         });
     
         const apps = appData.get({ plain: true });
-        res.render('user-apps', { apps });
+        res.render('applist', { apps });
       } catch (err) {
         res.status(500).json(err);
       }
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
       });
   
       const app = appData.get({ plain: true });
-      res.render('app', { app });
+      res.render('app-details', { app });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
