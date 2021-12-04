@@ -1,5 +1,5 @@
 {{!-- If logged in, show the table with each applications details --}}
-{{!-- {{#if loggedIn}}	 --}}
+{{!-- {{#if logged_in}}	 --}}
 <div class="card-body">
     <table class="table">
         <thead>
@@ -41,30 +41,25 @@
                     <h5 class="modal-title" id="myModalLabel">
                         Enter new application details
                     </h5> 
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">×</span>
-                    </button>
                 </div>
                 <div class="modal-body">
-                    <form class="new-app-form" action="/action_page.php">
+                    <form class="new-app-form" action="/">
                         <label for="fname">Application</label><br>
                         <input type="text" id="new-app-name" name="app"><br>
                         <label for="fname">URL</label><br>
-                        <input type="text" id="new-web-addy" name="app"><br>
+                        <input type="text" id="new-web-address" name="web"><br>
                         <label for="fname">Username</label><br>
-                        <input type="text" id="new-user-name" name="uname"><br>
+                        <input type="text" id="new-username" name="uname"><br>
                         <label for="lname">Password</label><br>
                         <input type="text" id="new-password" name="pwd"><br><br>
-                        <i class="fas fa-cogs fa-2x"></i><p>Generate Password</p>
-                    </form> 
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
+                        {{!-- <i class="fas fa-cogs fa-2x"></i><p>Generate Password</p> --}}
+                        <button id="submit-new" type="submit" class="btn btn-primary">
                         Add New App
-                    </button> 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Close
-                    </button>
+                        </button>
+                    </form> 
                 </div>
             </div>
     
@@ -77,5 +72,5 @@
 </div>
 {{!-- {{/if}} --}}
 
-<script src="../public/js/logout.js"></script>
-<script src="../public/js/newapp.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/newapp.js"></script>
