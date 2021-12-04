@@ -38,7 +38,7 @@ Apps.init(
 
         user_id: {
             type: DataTypes.INTEGER,
-            // foreign key references /user mopdel, and the key: id
+            // foreign key references user model, and the key: id
             references: {
                 model: "user",
                 key: "id",
