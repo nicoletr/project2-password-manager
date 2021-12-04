@@ -19,7 +19,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/newapp');
       } else {
-        alert('Failed to create project');
+        alert('Failed to create app');
       }
     }
   };
@@ -35,7 +35,7 @@ const newFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace('/newapp');
       } else {
-        alert('Failed to delete project');
+        alert('Failed to delete app');
       }
     }
   };
@@ -47,4 +47,3 @@ const newFormHandler = async (event) => {
   document
     .querySelector('.app-list')
     .addEventListener('click', delButtonHandler);
-  

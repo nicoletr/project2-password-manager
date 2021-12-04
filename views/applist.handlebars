@@ -1,5 +1,5 @@
 {{!-- If logged in, show the table with each applications details --}}
-{{#if loggedIn}}	
+{{!-- {{#if loggedIn}}	 --}}
 <div class="card-body">
     <table class="table">
         <thead>
@@ -20,7 +20,7 @@
         </thead>
         <tbody>
             {{!-- Iterate over each app entry to create list of passwords --}}
-            {{#each app as |app|}}
+            {{#each apps as |app|}}
             {{> app-details}}
             {{/each}}
         </tbody>
@@ -46,19 +46,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/action_page.php">
+                    <form class="new-app-form" action="/action_page.php">
                         <label for="fname">Application</label><br>
-                        <input type="text" id="app" name="app"><br>
+                        <input type="text" id="new-app-name" name="app"><br>
+                        <label for="fname">URL</label><br>
+                        <input type="text" id="new-web-addy" name="app"><br>
                         <label for="fname">Username</label><br>
-                        <input type="text" id="uname" name="uname"><br>
+                        <input type="text" id="new-user-name" name="uname"><br>
                         <label for="lname">Password</label><br>
-                        <input type="text" id="pwd" name="pwd"><br><br>
+                        <input type="text" id="new-password" name="pwd"><br><br>
                         <i class="fas fa-cogs fa-2x"></i><p>Generate Password</p>
                     </form> 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">
-                        Save changes
+                    <button type="submit" class="btn btn-primary">
+                        Add New App
                     </button> 
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Close
@@ -69,9 +71,11 @@
         </div>              
     </div>
     {{!-- Logout button --}}
-    <button type="button" class="btn" role="button" data-toggle="modal">
+    <button id="logout" type="button" class="btn" role="button" data-toggle="modal">
     Logout
     </button>
 </div>
-{{/if}}
+{{!-- {{/if}} --}}
 
+<script src="../public/js/logout.js"></script>
+<script src="../public/js/newapp.js"></script>
