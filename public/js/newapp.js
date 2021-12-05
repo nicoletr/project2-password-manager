@@ -1,3 +1,5 @@
+const generatePassword = require("../../utils/generatePassword");
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
