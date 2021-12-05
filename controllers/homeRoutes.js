@@ -3,7 +3,7 @@ const { Apps, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 //GET all users apps if logged in
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const appsData = await Apps.findAll({
       attributes: ['username', 'password', 'application_name','web_address'],

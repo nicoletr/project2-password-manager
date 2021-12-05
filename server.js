@@ -16,11 +16,12 @@ const sess = {
   cookie: {
     // 86,400 milliseconds = 1 day
     maxAge: 86400,
+    path: '/'
   },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize,
+    db: sequelize
   }),
 };
 
@@ -30,7 +31,7 @@ app.set('view engine', 'handlebars');
 app.engine('handlebars', hbs.engine);
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);

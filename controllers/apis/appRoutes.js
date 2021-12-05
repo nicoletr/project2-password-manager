@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Apps } = require('../../models');
 const withAuth = require('../../utils/auth');
-const { encrypt } = require('../../utils/crypto');
+// const { encrypt } = require('../../utils/crypto');
 
 //POST for new app
 router.post('/', async (req, res) => {
@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
       password: req.body.password,
       application_name: req.body.application_name,
       web_address: req.body.web_address,
-      user_id: req.session.user_id,
+      user_id: req.session.user_id
     });
 
     res.status(200).json(newApp);
@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-//DELETE for deleting app
+// DELETE for deleting app
 router.delete('/:id', async (req, res) => {
   try {
     const appData = await Apps.destroy({
