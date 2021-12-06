@@ -43,9 +43,10 @@ router.delete('/:id', async (req, res) => {
 });
 
 // GET for generating a password
-router.get('/password', async (res) => {
-  console.log('here');
+router.get('/password', (req, res) => {
   const newPassword = generatePassword();
-  res.send(newPassword);
+
+  res.status(200).json(newPassword);
 });
+
 module.exports = router;
