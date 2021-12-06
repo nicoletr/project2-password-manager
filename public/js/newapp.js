@@ -1,34 +1,31 @@
-// Cannot use the below; require() is back-end only and not client/browser enabled functionality
-// const generatePassword = require('../../utils/generatePassword');
-
 const newFormHandler = async (event) => {
   event.preventDefault();
   console.log('test');
-  
+
   const username = document.getElementById('new-username').value.trim();
   const password = document.getElementById('new-password').value.trim();
   const application_name = document.getElementById('new-app-name').value.trim();
   const web_address = document.getElementById('new-web-address').value.trim();
 
   if (username && password && application_name && web_address) {
-      const response = await fetch('/api/apps', {
-        method: 'POST',
-        body: JSON.stringify({
-          username,
-          password,
-          application_name,
-          web_address,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-      console.log(response);
-      if (response.ok) {
-        alert('New app added succesfully!');
-        document.location.replace('/');
-      } else {
-        //catch error logic
-      }
+    const response = await fetch('/api/apps', {
+      method: 'POST',
+      body: JSON.stringify({
+        username,
+        password,
+        application_name,
+        web_address,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    console.log(response);
+    if (response.ok) {
+      alert('New app added succesfully!');
+      document.location.replace('/');
+    } else {
+      //catch error logic
     }
+  }
 };
 
 const delButtonHandler = async (event) => {
@@ -50,13 +47,16 @@ const delButtonHandler = async (event) => {
 
 const generatePasswordHandler = async (event) => {
   event.preventDefault();
-  console.log('here');
+  const passwordField = document.getElementById('new-password');
 
   const response = await fetch('/api/apps/password', {
     method: 'GET',
   });
 
-  console.log(response);
+  const data = await response.json();
+  passwordField.value = data;
+
+  console.log(data);
 };
 
 document
