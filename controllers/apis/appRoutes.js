@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { Apps } = require('../../models');
 const withAuth = require('../../utils/auth');
 const generatePassword = require('../../utils/generatePassword');
-// const { encrypt } = require('../../utils/crypto');
 
 //POST for new app
 router.post('/', async (req, res) => {
