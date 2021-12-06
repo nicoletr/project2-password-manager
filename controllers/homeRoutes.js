@@ -6,13 +6,18 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     const appsData = await Apps.findAll({
-      attributes: ['username', 'password', 'application_name','web_address'],
+      attributes: [
+        'username',
+        'password',
+        'application_name',
+        'web_address',
+        'id',
+      ],
     });
 
     const apps = appsData.map((app) => app.get({ plain: true }));
 
     res.render('applist', { apps });
-
   } catch (err) {
     res.status(500).json(err);
   }
