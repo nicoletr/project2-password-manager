@@ -1,5 +1,20 @@
 # Password Manager
-Secure password management application
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+## Table of Contents
+* [Description](#description)
+* [User Stories](#user-stories)
+* [Acceptance Criteria](#acceptance-criteria)
+* [Specifications](#specifications)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Demonstration](#demonstration)
+* [Questions](#questions)
+* [Licensing](#licensing)
+
+## Description
+
+A secure password management application to save all the passwords you need to remember in your day to day life.
 
 ## User Stories
 
@@ -9,21 +24,19 @@ Secure password management application
 
 * As a user, I would like to generate new secure passwords for new applications.
 
-### Acceptance Criteria
+## Acceptance Criteria
 
-* It's done when the `/` homepage route renders a login page.
+* It's done when the `/` homepage route redirects to the login `/login` page.
 
 * It's done when an existing user can enter their credentials on the login page to create a session on the server.
 
 * It's done when a new user can create an account on the login page and then be immediately logged in with a session.
 
-* It's done when the `/apps` route renders the logged-in user's saved passwords and a form to save a new password.
+* It's done when the `/` route renders the logged-in user's saved passwords.
 
-* It's done when the `/apps/:id` route renders the login information saved for a specific app.
+* It's done when the user can click a 'new' or '+' button to add a new app to their list.
 
-* It's done when only a logged in user can visit the `/apps` route.
-
-* It's done when a logged in user is redirected to `/apps` when they try to visit `/` again.
+* It's done when only a logged in user can visit the `/` route.
 
 * It's done when a user on the apps page can use the form to create a new password in the database.
 
@@ -37,7 +50,7 @@ Secure password management application
 
 * It's done when the views are rendered with Handlebars.js templates.
 
-* It's done when the library generate-password is used to generate a new password.
+* It's done when the npm library generate-password is used to generate a new password.
 
 ## Specifications 
 
@@ -71,4 +84,38 @@ Secure password management application
 
     * If a user is deleted, all associated apps are also deleted.
 
+
+## Installation
+```
+1. Clone or fork the remote repo to your local
+2. Download and install node.js
+3. Download and install Insomnia to test routes
+```
+
+## Usage
+```
+1. Run 'npm install'
+2. Login to Mysql and run 'source schema.sql' through the db folder
+3. Run 'npm seed' to seed the database
+4. Run either 'npm start'
+5. Test the routes via Insomnia (optional)
+6. Open the app in your browser using localhost at the specified PORT or deploy via Heroku
+```
+
+## Contributing
+To contribute to this repo, follow the below steps:
+```
+1. Clone the remote repo to your local
+2. Create your branch
+3. Add, commit, push your branch to the remote repo
+4. Create a pull request
+5. Wait for approvals, comments, and/or change requests
+```
+
+## Heroku Deployment
+[Use the app here](https://safe-headland-04957.herokuapp.com/)
+
+
+## Licensing 
+This project is licensed under [MIT](https://opensource.org/licenses/MIT)
 ---
