@@ -33,7 +33,7 @@
     <button type="button" class="btn" href="#modal-container-new" role="button" data-toggle="modal">
         <i class="far fa-plus-square fa-2x"></i>
     </button>
-        <form class="new-app-form">
+        <form id="new-app-form">
         {{!-- Modal form for new application entry --}}
         <div class="modal fade" id="modal-container-new" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -61,7 +61,6 @@
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
                             Close
                             </button>
-                        </form> 
                     </div>
                 </div>
             </div>              
@@ -73,6 +72,3 @@
     </button>
 </div>
 {{!-- {{/if}} --}}
-
-<script src="/js/logout.js"></script>
-<script src="/js/newapp.js"></script>

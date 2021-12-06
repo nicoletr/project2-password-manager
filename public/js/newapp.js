@@ -3,31 +3,32 @@
 
 const newFormHandler = async (event) => {
   event.preventDefault();
-
+  console.log('test');
+  
   const username = document.getElementById('new-username').value.trim();
   const password = document.getElementById('new-password').value.trim();
   const application_name = document.getElementById('new-app-name').value.trim();
   const web_address = document.getElementById('new-web-address').value.trim();
 
   if (username && password && application_name && web_address) {
-    const response = await fetch('/api/apps', {
-      method: 'POST',
-      body: JSON.stringify({
-        username,
-        password,
-        application_name,
-        web_address,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    console.log(response);
-    if (response.ok) {
-      alert('New app added succesfully!');
-      document.location.replace('/');
-    } else {
-      alert('Failed to create app');
+      const response = await fetch('/api/apps', {
+        method: 'POST',
+        body: JSON.stringify({
+          username,
+          password,
+          application_name,
+          web_address,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+      console.log(response);
+      if (response.ok) {
+        alert('New app added succesfully!');
+        document.location.replace('/');
+      } else {
+        //catch error logic
+      }
     }
-  }
 };
 
 const delButtonHandler = async (event) => {
@@ -59,13 +60,13 @@ const generatePasswordHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-app-form')
-  .addEventListener('submit', newFormHandler());
+  .querySelector('#new-app-form')
+  .addEventListener('submit', newFormHandler);
 
 document
   .querySelector('#app-delete')
-  .addEventListener('click', delButtonHandler());
+  .addEventListener('click', delButtonHandler);
 
 document
   .getElementById('generate-password')
-  .addEventListener('click', generatePasswordHandler());
+  .addEventListener('click', generatePasswordHandler);
