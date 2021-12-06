@@ -14,14 +14,14 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   secret: 'Super secret secret',
   cookie: {
-    // 86,400 milliseconds = 1 day
-    maxAge: 86400,
-    path: '/'
+    // 86,400,000 milliseconds = 1 day
+    maxAge: 86400000,
+    path: '/',
   },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-    db: sequelize
+    db: sequelize,
   }),
 };
 
@@ -43,15 +43,3 @@ sequelize.sync({ force: false }).then(() => {
     )
   );
 });
-
-// -----Temp routing for handlebars testing-----
-
-// app.get("/", async (req, res) => {
-//   res.render("applist", { layout: "index" });
-// });
-
-// app.get("/test", async (req, res) => {
-//   res.render("test", { layout: "index" });
-// });
-
-// ---------------------------------------------
