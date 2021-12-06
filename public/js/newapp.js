@@ -63,9 +63,9 @@ document
   .querySelector('#new-app-form')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('#app-delete')
-  .addEventListener('click', delButtonHandler);
+document.querySelectorAll('.delete').forEach((btn) => {
+  btn.addEventListener('click', delButtonHandler);
+});
 
 document
   .getElementById('generate-password')
