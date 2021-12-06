@@ -11,7 +11,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const apps = appsData.map((app) => app.get({ plain: true }));
 
-    // res.status(200).json(apps);
+    res.status(200).json(apps);
 
     res.render('applist', { apps });
 
