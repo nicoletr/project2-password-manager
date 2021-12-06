@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class Apps extends Model {}
@@ -47,6 +48,21 @@ Apps.init(
 
     },
     {
+        hooks: {
+
+            // before creation of password, converts string to hash, then stores
+            beforeCreate: async (newAppData) => {
+                newAppData.password = await bcrypt.hash(newAppData.password, 10);
+                return newAppData;
+            },
+
+            // before updating password, converts string to hash
+            beforeUpdate: async (updatedAppData) => {
+                updatedAppData.password = await bcrypt.hash(updatedAppData.password, 10);
+                return updatedAppData;
+            },
+
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,

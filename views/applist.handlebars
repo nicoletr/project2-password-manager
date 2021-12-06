@@ -33,38 +33,40 @@
     <button type="button" class="btn" href="#modal-container-new" role="button" data-toggle="modal">
         <i class="far fa-plus-square fa-2x"></i>
     </button>
-    {{!-- Modal form for new application entry --}}
-    <div class="modal fade" id="modal-container-new" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">
-                        Enter new application details
-                    </h5> 
+        <form class="new-app-form">
+        {{!-- Modal form for new application entry --}}
+        <div class="modal fade" id="modal-container-new" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel">
+                            Enter new application details
+                        </h5> 
+                    </div>
+                    <div class="modal-body">
+                            <label for="fname">Application</label><br>
+                            <input type="text" id="new-app-name" name="app"><br>
+                            <label for="fname">URL</label><br>
+                            <input type="text" id="new-web-address" name="web"><br>
+                            <label for="fname">Username</label><br>
+                            <input type="text" id="new-username" name="uname"><br>
+                            <label for="lname">Password</label><br>
+                            <input type="text" id="new-password" name="pwd"><br><br>
+                            <button type="button" id="generate-password" class="btn btn-primary">
+                            <i class="fas fa-cogs fa-2x"></i>Generate Password
+                            </button>
+                            <button type="submit" id="submit-new" class="btn btn-primary">
+                            Add
+                            </button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Close
+                            </button>
+                        </form> 
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form class="new-app-form" action="/">
-                        <label for="fname">Application</label><br>
-                        <input type="text" id="new-app-name" name="app"><br>
-                        <label for="fname">URL</label><br>
-                        <input type="text" id="new-web-address" name="web"><br>
-                        <label for="fname">Username</label><br>
-                        <input type="text" id="new-username" name="uname"><br>
-                        <label for="lname">Password</label><br>
-                        <input type="text" id="new-password" name="pwd"><br><br>
-                        {{!-- <i class="fas fa-cogs fa-2x"></i><p>Generate Password</p> --}}
-                        <button id="submit-new" type="submit" class="btn btn-primary">
-                        Add New App
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                        Close
-                        </button>
-                    </form> 
-                </div>
-            </div>
-    
-        </div>              
-    </div>
+            </div>              
+        </div>
+    </form> 
     {{!-- Logout button --}}
     <button id="logout" type="button" class="btn" role="button" data-toggle="modal">
     Logout
@@ -72,5 +74,5 @@
 </div>
 {{!-- {{/if}} --}}
 
-<script src="js/logout.js"></script>
-<script src="js/newapp.js"></script>
+<script src="/js/logout.js"></script>
+<script src="/js/newapp.js"></script>

@@ -3,69 +3,67 @@
 Login
 </button>
 
-<div class="modal fade" id="modal-container-login" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="login-form">
-                Enter your Username and Password
-                </h5> 
-            </div>
-            <div class="modal-body">
-                <form class="login-form" action="/">
-                <label for="fname">Username</label><br>
-                <input type="text" id="login-uname" name="uname"><br>
-                <label for="lname">Password</label><br>
-                <input type="text" id="login-pwd" name="pwd"><br><br>
-                </form> 
-            </div>
-            <div class="modal-footer">							 
-                <button type="submit" class="btn btn-primary">
-                    Login
-                </button> 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
+<form class="login-form">
+    <div class="modal fade" id="modal-container-login" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="login-form">
+                    Enter your Username and Password
+                    </h5> 
+                </div>
+                <div class="modal-body">
+                    <label for="fname">Username</label><br>
+                    <input type="text" id="login-uname" name="uname"><br>
+                    <label for="lname">Password</label><br>
+                    <input type="password" id="login-pwd" name="pwd"><br><br>
+                </div>
+                <div class="modal-footer">							 
+                    <button type="submit" class="btn btn-primary">
+                        Login
+                    </button> 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
             </div>
         </div>
-
     </div>
-</div>
+</form> 
 
 {{!-- Sign up button and modal --}}
 <button type="button" class="btn btn-primary" href="#modal-container-signup" role="button" data-toggle="modal">
 Sign Up!
 </button>
 
-<div class="modal fade" id="modal-container-signup" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="signup-form">
-                Create your Profile
-                </h5> 
-            </div>
-            <div class="modal-body">
-                <form class="signup-form" action="/">
-                <label for="fname">Username</label><br>
-                <input type="text" id="signup-uname" name="uname"><br>
-                <label for="fname">Email</label><br>
-                <input type="text" id="signup-email" name="email"><br>
-                <label for="lname">Password</label><br>
-                <input type="text" id="signup-pwd" name="pwd"><br><br>
-                </form> 
-            </div>
-            <div class="modal-footer">							 
-                <button type="submit" class="btn btn-primary">
-                    Signup
-                </button> 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
+<form class="signup-form">
+    <div class="modal fade" id="modal-container-signup" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signup-form">
+                    Create your Profile
+                    </h5> 
+                </div>
+                <div class="modal-body">
+                    <label for="fname">Username</label><br>
+                    <input type="text" id="signup-uname" name="uname"><br>
+                    <label for="fname">Email</label><br>
+                    <input type="text" id="signup-email" name="email"><br>
+                    <label for="lname">Password</label><br>
+                    <input type="password" id="signup-pwd" name="pwd"><br><br>
+                </div>
+                <div class="modal-footer">							 
+                    <button type="submit" class="btn btn-primary">
+                        Signup
+                    </button> 
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                </div>
             </div>
         </div>
-
     </div>
-</div>
+</form>
 
-<script src="js/login.js"></script>
+<script src="/js/login.js"></script>
