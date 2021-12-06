@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Apps } = require('../../models');
 const withAuth = require('../../utils/auth');
+const generatePassword = require('../../utils/generatePassword');
 // const { encrypt } = require('../../utils/crypto');
 
 //POST for new app
@@ -11,7 +12,7 @@ router.post('/', async (req, res) => {
       password: req.body.password,
       application_name: req.body.application_name,
       web_address: req.body.web_address,
-      user_id: req.session.user_id
+      user_id: req.session.user_id,
     });
 
     res.status(200).json(newApp);
@@ -35,10 +36,16 @@ router.delete('/:id', async (req, res) => {
       return;
     }
 
-    res.status(200).json({message: 'App deleted'});
+    res.status(200).json({ message: 'App deleted' });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// GET for generating a password
+router.get('/password', async (res) => {
+  console.log('here');
+  const newPassword = generatePassword();
+  res.send(newPassword);
+});
 module.exports = router;

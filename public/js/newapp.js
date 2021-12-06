@@ -1,4 +1,5 @@
-const generatePassword = require("../../utils/generatePassword");
+// Cannot use the below; require() is back-end only and not client/browser enabled functionality
+// const generatePassword = require('../../utils/generatePassword');
 
 const newFormHandler = async (event) => {
   event.preventDefault();
@@ -11,7 +12,12 @@ const newFormHandler = async (event) => {
   if (username && password && application_name && web_address) {
     const response = await fetch('/api/apps', {
       method: 'POST',
-      body: JSON.stringify({ username, password, application_name, web_address }),
+      body: JSON.stringify({
+        username,
+        password,
+        application_name,
+        web_address,
+      }),
       headers: { 'Content-Type': 'application/json' },
     });
     console.log(response);
@@ -41,10 +47,25 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const generatePasswordHandler = async (event) => {
+  event.preventDefault();
+  console.log('here');
+
+  const response = await fetch('/api/apps/password', {
+    method: 'GET',
+  });
+
+  console.log(response);
+};
+
 document
   .querySelector('.new-app-form')
-  .addEventListener('submit', newFormHandler);
+  .addEventListener('submit', newFormHandler());
 
 document
   .querySelector('#app-delete')
-  .addEventListener('click', delButtonHandler);
+  .addEventListener('click', delButtonHandler());
+
+document
+  .getElementById('generate-password')
+  .addEventListener('click', generatePasswordHandler());
